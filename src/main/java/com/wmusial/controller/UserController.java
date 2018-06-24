@@ -19,22 +19,35 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
-    public String showUsers(Model model) {
+    public String showUsers(Model model, @RequestParam(required = false) String search) {
+
+        List<User> users;
+        if (search != null) {
+            users = userRepository.searchbyCustom("%" + search + "%"); // % po to żeby znalazł podobne z przodu i tylu
+        } else {
+            users = userRepository.findAll();
+        }
+        model.addAttribute("usersList", users);
+
+        return "users";
+    }
+    @RequestMapping(value = "/users-tiles", method = RequestMethod.GET)
+    public String showUserTiles(Model model) {
 
         List<User> users = userRepository.findAll();
 
         model.addAttribute("usersList", users);
 
-        return "users";
+        return "users-tiles";
     }
     @RequestMapping(value = "/users/create", method = RequestMethod.GET)
     public String getUserCreate() {
         return "formularz";
     }
     @RequestMapping(value = "/users/create", method = RequestMethod.POST)
-    public String createUser(@RequestParam(name = "imie") String firstName, @RequestParam(name = "nazwisko") String lastName, @RequestParam String email) {
+    public String createUser(@RequestParam(name = "imie") String firstName, @RequestParam(name = "nazwisko") String lastName, @RequestParam String email, @RequestParam(required = false) String avatarUrl) {
 
-        User user = new User(firstName, lastName, email);
+        User user = new User(firstName, lastName, email, avatarUrl);
         userRepository.save(user);
         return "redirect:/users";
     }
@@ -49,9 +62,9 @@ public class UserController {
 
     }
     @RequestMapping(value = "/users/update", method = RequestMethod.POST)
-    public String updateUser(@RequestParam(name = "id") Long id, @RequestParam(name = "imie") String firstName, @RequestParam(name = "nazwisko") String lastName, @RequestParam String email) {
+    public String updateUser(@RequestParam(name = "id") Long id, @RequestParam(name = "imie") String firstName, @RequestParam(name = "nazwisko") String lastName, @RequestParam String email, @RequestParam(required = false) String avatarUrl) {
 
-        User user = new User(id, firstName, lastName, email);
+        User user = new User(id, firstName, lastName, email, avatarUrl);
         userRepository.save(user);
         return "redirect:/users";
     }

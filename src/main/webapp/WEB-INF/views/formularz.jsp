@@ -31,9 +31,17 @@
             <label for="email" class="col-md-2 control-label">Email:</label>
             <div class="col-md-10">
                 <input id="email" name="email" class="form-control"
-                       type="email" placeholder="Wpisz email" required>
+                       type="text" placeholder="Wpisz email" required>
             </div>
         </div>
+
+        <div class="form-group">
+                    <label for="avatarUrl" class="col-md-2 control-label">Avatar:</label>
+                    <div class="col-md-10">
+                        <input id="avatarUrl" name="avatarUrl" class="form-control"
+                               type="text" placeholder="Podaj URL Avatara:" >
+                    </div>
+                </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

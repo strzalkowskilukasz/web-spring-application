@@ -16,7 +16,7 @@
         <div class="form-group">
             <label for="imie" class="col-md-2 control-label">Imie:</label>
             <div class="col-md-10">
-                <input id="imie" name="imie" class="form-control" value="${user.firstName}"
+                <input id="imie" name="imie" class="form-control" value="${user.firstName}" // value jest po to, aby uzupełniał się formularz aktualnym stanem wartością pola zgodnie z bazą
                        type="text" placeholder="Wpisz imie" required>
             </div>
         </div>
@@ -33,9 +33,17 @@
             <label for="email" class="col-md-2 control-label">Email:</label>
             <div class="col-md-10">
                 <input id="email" name="email" class="form-control" value="${user.email}"
-                       type="email" placeholder="Wpisz email" required>
+                       type="text" placeholder="Wpisz email" required>
             </div>
         </div>
+
+                <div class="form-group">
+                            <label for="avatarUrl" class="col-md-2 control-label">Avatar:</label>
+                            <div class="col-md-10">
+                                <input id="avatarUrl" name="avatarUrl" class="form-control" value="${user.avatarUrl}">
+                                       type="text" placeholder="Podaj URL Avatara:" >
+                            </div>
+                        </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">

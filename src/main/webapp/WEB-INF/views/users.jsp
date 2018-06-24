@@ -14,6 +14,13 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3 col-xs-12">
             <!-- xs sm md lg -->
+<form class="form-inline" action="/users" method="get">
+  <div class="form-group>
+    <label for="search" class="sr-only">x</label>
+    <input name="search" type="text" class="form-control" id="search" placeholder="Wyszykaj">
+  </div>
+  <button type="submit" class="btn btn-primary mb-2">Szukaj</button>
+</form>
             <table class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -21,6 +28,7 @@
                     <th>Imie</th>
                     <th>Nazwisko</th>
                     <th>Email</th>
+                    <th>Avatar</th>
                     <th>Akcja</th>
                 </tr>
                 </thead>
@@ -32,6 +40,16 @@
                     <td>${user.firstName}</td>
                     <td>${user.lastName}</td>
                     <td>${user.email}</td>
+                    <td>
+                    <c:choose>
+                    <c:when test="${user.avatarUrl != null && user.avatarUrl !=''}">
+                    <img height="100" src="${user.avatarUrl}">
+                    </c:when>
+                    <c:otherwise>
+                    <img height="100" src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png">
+                    </c:otherwise>
+                    </c:choose>
+                    </td>
                     <td>
                         <a href="/users/update?id=${user.id}" class="btn btn-primary">Edytuj</a>
                         <form action="/users/delete" method="POST">
