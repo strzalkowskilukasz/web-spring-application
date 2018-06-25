@@ -40,8 +40,8 @@
                 <div class="form-group">
                             <label for="avatarUrl" class="col-md-2 control-label">Avatar:</label>
                             <div class="col-md-10">
-                                <input id="avatarUrl" name="avatarUrl" class="form-control" value="${user.avatarUrl}">
-                                       type="text" placeholder="Podaj URL Avatara:" >
+                                <input id="avatarUrl" name="avatarUrl" class="form-control" value="${user.avatarUrl}"
+                                       type="text" placeholder="Podaj URL Avatara:">
                             </div>
                         </div>
 

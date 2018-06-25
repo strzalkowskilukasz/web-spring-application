@@ -24,6 +24,7 @@ public class UserController {
         List<User> users;
         if (search != null) {
             users = userRepository.searchbyCustom("%" + search + "%"); // % po to żeby znalazł podobne z przodu i tylu
+//            users = userRepository.findByEmail(search);
         } else {
             users = userRepository.findAll();
         }

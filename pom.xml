@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.wmusial</groupId>
-    <artifactId>spring-java-config</artifactId>
+    <artifactId>spring-java-web-app</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -15,7 +15,7 @@
         <jstl.version>1.2</jstl.version>
         <servlet.api.version>3.1.0</servlet.api.version>
         <mysql.connector.version>5.1.46</mysql.connector.version>
-        <tomcat.path>C://tomcat</tomcat.path>
+        <tomcat.path>/Users/lukaszstrzalkowski/Desktop/config_files/apache-tomcat-8.5.31</tomcat.path>
 
         <spring.version>4.3.13.RELEASE</spring.version>
         <spring.data.version>1.11.9.RELEASE</spring.data.version>

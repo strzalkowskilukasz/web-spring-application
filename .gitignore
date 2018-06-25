@@ -2,3 +2,5 @@
 out
 *.iml
 target
+*.properties
+resources/hibernate.properties
